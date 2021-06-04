@@ -1,0 +1,27 @@
+<!-- Header Starts -->
+
+<app-header></app-header>
+<!-- Header Ends-->
+
+  <nav class="navbar justify-content-center navbar-light bg-light">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="getData('planet')">Planets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="getData('sun')">Suns</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container-fluid ">
+    <div *ngIf="displayPlanets">
+      <planets></planets>
+    </div>
+    <div *ngIf="displaySuns">
+      <suns></suns>
+    </div>
+  </div>
+ 
+<!-- footer -->
+
+<app-footer></app-footer>

@@ -1,0 +1,87 @@
+<div id="modal-content-wrapper">
+    <h5 class="text-center">{{data.message}}</h5>
+    <br/>
+    <br/>   
+    <section *ngIf="action == 'Add' || action == 'Update'" id="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="plLetter">Planet Letter</label>
+                <input type="text" class="form-control" id="plLetter" [(ngModel)]="modalData.plLetter" name="plLetter">
+            </div>
+
+            <div class="form-group">
+                <label for="plDiscmethod">Discovery Method</label>
+                <input type="text" class="form-control" id="plDiscmethod" [(ngModel)]="modalData.plDiscmethod"
+                    name="plDiscmethod">
+            </div>
+
+            <div class="form-group">
+                <label for="plPnum">Number of Planets in System</label>
+                <input type="number" class="form-control" id="plPnum" [(ngModel)]="modalData.plPnum" name="plPnum"
+                    min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="plTtvflag">TTV Flag</label>
+                <input class="col-8" type="number" class="form-control" id="plTtvflag" [(ngModel)]="modalData.plTtvflag"
+                    name="plTtvflag" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="plKepflag">Kepler Field Flag</label>
+                <input type="number" class="form-control" id="plKepflag" [(ngModel)]="modalData.plKepflag"
+                    name="plKepflag" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="plK2flag">K2 Mission Flag</label>
+                <input type="number" class="form-control" id="plK2flag" [(ngModel)]="modalData.plK2flag" name="plK2flag"
+                    min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="plNnotes">Number of Notes</label>
+                <input type="number" class="form-control" id="plNnotes" [(ngModel)]="modalData.plNnotes" name="plNnotes"
+                    min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="raStr">RA String</label>
+                <input type="text" class="form-control" id="raStr" [(ngModel)]="modalData.raStr" name="raStr">
+            </div>
+
+            <div class="form-group">
+                <label for="ra">RA</label>
+                <input type="number" class="form-control" id="ra" [(ngModel)]="modalData.ra" name="ra" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="declinStr">DEC String</label>
+                <input type="text" class="form-control" id="declinStr" [(ngModel)]="modalData.declinStr"
+                    name="declinStr">
+            </div>
+
+            <div class="form-group">
+                <label for="declin">DEC</label>
+                <input type="number" class="form-control" id="declin" [(ngModel)]="modalData.declin" name="declin"
+                    min="0">
+            </div>
+            <div style="float:right;">
+                <button *ngIf="action == 'Add'" id="submit" type="button" class="btn btn-outline-success" (click)="submit()">Add</button>
+                <button *ngIf="action == 'Update'" id="submit" type="button" class="btn btn-outline-success" (click)="submit()">Update</button>
+                &nbsp;&nbsp;&nbsp;
+                <button id="cancel" type="button" class="btn btn-danger" (click)="closeModal()">Cancel</button>
+            </div>
+        </form>
+    </section>
+
+    <section  *ngIf="action == 'Delete'">
+        <p>Are you sure you want to delete this record?</p>
+
+        <div style="float:right;">
+            <button id="submit" type="button" class="btn btn-danger" (click)="submit()">Delete</button>
+            &nbsp;&nbsp;&nbsp;
+            <button id="cancel" type="button" class="btn btn-light" (click)="closeModal()">Cancel</button>
+        </div>
+    </section>
+</div>
